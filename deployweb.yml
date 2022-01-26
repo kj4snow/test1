@@ -1,0 +1,12 @@
+---
+- hosts: all
+  tasks:
+  - name: Git test
+    git:
+      repo: git@github.ibm.com:Kay-Jeng/awxpoc_web.git
+      dest: /tmp/awxpoc
+  - name: copy webpage files
+    copy:
+      remote_src: True
+      src: /tmp/awxpoc/index.html
+      dest: /var/www/html/index.html
